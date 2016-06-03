@@ -50,12 +50,23 @@
 
 <h2>图片</h2>
 <dl>
-<dt>好看的图片</dt>
-<dd><img src="./assets/img1.jpg" /></dd>
-<dt>好看的图片</dt>
-<dd><img src="./assets/img1.jpg" /></dd>
-<dt>好看的图片</dt>
-<dd><img src="./assets/img1.jpg" /></dd>
+<dt>&nbsp;</dt>
+<dd>
+	好看的图片<br/>
+	<img src="./assets/img1.jpg" />
+</dd>
+
+<dt>&nbsp;</dt>
+<dd>
+	好看的图片<br/>
+	<img src="./assets/img1.jpg" />
+</dd>
+
+<dt>&nbsp;</dt>
+<dd>
+	好看的图片<br/>
+	<img src="./assets/img1.jpg" />
+</dd>
 </dl>
 
 </ul>
@@ -79,7 +90,7 @@
 下面是一个表格，给表格加了一个border="1"
 <table border="1">
 
-<tr>
+<tr align="left">
 <th>表头</th>
 <th>表头</th>
 <th>表头</th>
@@ -105,7 +116,7 @@
 
 <tr>
 <td>总计</td>
-<td>1000</td>
+<td colspan="2">1000</td>
 </tr>
 </table>
 
@@ -118,15 +129,12 @@
 请输入邮箱地址:
 <input type="text" name="email" value="这是一个文本输入框">
 <br />
-邮箱地址请按要求输入
-<br />
+<p>邮箱地址请按要求输入</p>
 请输入密码:
-<input type="password" name="password" value="这是一个文本输入框">
+<input type="text" name="password" value="这是一个文本输入框">
 请重复输入密码:
-<input type="password" name="password2" value="这是一个文本输入框">
-<br />
-密码为6-16位英文数字
-<br />
+<input type="text" name="password2" value="这是一个文本输入框">
+<p>密码为6-16位英文数字</p>
 性别:
 <input type="radio" name="radio" value="男" checked="true">男
 <input type="radio" name="radio" value="女" >女
@@ -147,7 +155,7 @@
 </form>
 <br />
 <footer>
-版权所有©
+版权所有&copy;
 </footer>
 </body>
 </html>
