@@ -90,6 +90,16 @@ nav {
     font-size: 12px; }
   .ThirdArticle ol {
     font-weight: bold; }
+  .ThirdArticle table {
+    width: 100%; }
+  .ThirdArticle table, .ThirdArticle th, .ThirdArticle td {
+    border: solid 1px black;
+    border-collapse: collapse; }
+  .ThirdArticle thead {
+    background-color: black;
+    color: white; }
+  .ThirdArticle tfoot {
+    background-color: #dedede; }
 
 .BaseInfo {
   background-color: white;
@@ -100,6 +110,23 @@ nav {
   .BaseInfo h2 {
     border-left: solid 5px #dedede;
     padding-left: 10px; }
+  .BaseInfo form label {
+    float: left;
+    border: solid 1px red;
+    text-align: right;
+    padding-right: 1em;
+    width: 370px; }
+  .BaseInfo form p {
+    padding-left: 370px; }
+  .BaseInfo form textarea {
+    width: 766px;
+    height: 100px; }
+  .BaseInfo form input[type="submit"] {
+    width: 100%;
+    color: white;
+    background-color: blue;
+    border-radius: 10px;
+    line-height: 30px; }
 
 footer {
   display: fixed;
