@@ -1,0 +1,75 @@
+$LightGray:#dedede;
+
+@mixin articleStyle{
+	background-color: white;
+	//max-width: 1240px; 
+	margin: 20px;
+	border: solid #cdcdcd 1px;
+	box-shadow: 1px 1px grey;
+}
+
+body{
+	box-sizing:border-box;
+	margin: 0px;
+	background-color: $LightGray;
+}
+
+nav {
+	background-color: #333333;
+	height: 60px;
+
+	img{
+		padding-left: 40px;
+		padding-top: 5px;
+	}
+
+	
+	ul{
+		float: right;
+		li {
+			display: inline-block;
+			width: 75px;
+			a{
+				color: white;
+				text-decoration: none;
+				font-size: 10px;
+				padding-left: 8px;
+			}
+
+			a.click{
+				color: #6f706b;
+			}
+		}
+	}
+	
+}
+
+.FirstArticle{
+	@include articleStyle;
+}
+
+.SecondArticle{
+	@include articleStyle;
+}
+
+.imageShow{
+	@include articleStyle;
+}
+
+.ThirdArticle{
+	@include articleStyle;
+}
+
+.BaseInfo{
+	@include articleStyle;
+}
+
+footer {
+	display: fixed;
+	bottom: 0px;
+	height: 70px;
+	background-color: black;
+	text-align: center;
+	padding-top: 23px;
+	color: white;
+}
