@@ -1,9 +1,10 @@
 $LightGray:#dedede;
+$TitleColor:#5c6660;
 
 @mixin articleStyle{
-	background-color: white;
-	//max-width: 1240px; 
+	background-color: white; 
 	margin: 20px;
+	padding: 40px 20px;
 	border: solid #cdcdcd 1px;
 	box-shadow: 1px 1px grey;
 }
@@ -11,6 +12,7 @@ $LightGray:#dedede;
 body{
 	box-sizing:border-box;
 	margin: 0px;
+	padding: 0px;
 	background-color: $LightGray;
 }
 
@@ -33,7 +35,6 @@ nav {
 				color: white;
 				text-decoration: none;
 				font-size: 10px;
-				padding-left: 8px;
 			}
 
 			a.click{
@@ -41,27 +42,105 @@ nav {
 			}
 		}
 	}
-	
 }
 
 .FirstArticle{
 	@include articleStyle;
+
+	h4{
+		color:$TitleColor;
+	}
+
+	p {
+		text-indent: 2em;
+		line-height: 1.5em;
+	}
+
+	p:first-of-type{
+		text-indent: 0em;
+		color:$TitleColor;
+		font-size: 12px;
+	}
+
+
 }
 
 .SecondArticle{
 	@include articleStyle;
+
+	h4{
+		color:$TitleColor;
+	}
+
+	p {
+		text-indent: 2em;
+		line-height: 1.5em;
+	}
+
+	p:first-of-type{
+		text-indent: 0em;
+		color:$TitleColor;
+		font-size: 12px;
+	}
+
+	ul {
+		list-style-type: none;;
+	}
 }
 
 .imageShow{
 	@include articleStyle;
+	dd {
+		border: solid 1px $LightGray;
+		width: 123px;
+		height: 125px;
+		text-align: center;
+		padding: 10px;
+		img {
+			width: 100px;
+			height: 82px;
+			padding-top: 20px;
+		} 
+	}
 }
 
 .ThirdArticle{
 	@include articleStyle;
+
+	h4{
+		color:$TitleColor;
+	}
+
+	p {
+		text-indent: 2em;
+		line-height: 1.5em;
+	}
+
+	p:first-of-type{
+		text-indent: 0em;
+		color:$TitleColor;
+		font-size: 12px;
+	}
+
+	ol{
+		font-weight: bold;
+	}
+
+
 }
 
 .BaseInfo{
 	@include articleStyle;
+	h2{
+		border-left: solid 5px $LightGray;
+		padding-left: 10px;
+	}
+
+	// input {
+	// 	vertical-align: middle;
+	// }
+	
+
 }
 
 footer {

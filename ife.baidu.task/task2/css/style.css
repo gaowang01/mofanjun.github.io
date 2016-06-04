@@ -1,6 +1,7 @@
 body {
   box-sizing: border-box;
   margin: 0px;
+  padding: 0px;
   background-color: #dedede; }
 
 nav {
@@ -17,40 +18,88 @@ nav {
       nav ul li a {
         color: white;
         text-decoration: none;
-        font-size: 10px;
-        padding-left: 8px; }
+        font-size: 10px; }
       nav ul li a.click {
         color: #6f706b; }
 
 .FirstArticle {
   background-color: white;
   margin: 20px;
+  padding: 40px 20px;
   border: solid #cdcdcd 1px;
   box-shadow: 1px 1px grey; }
+  .FirstArticle h4 {
+    color: #5c6660; }
+  .FirstArticle p {
+    text-indent: 2em;
+    line-height: 1.5em; }
+  .FirstArticle p:first-of-type {
+    text-indent: 0em;
+    color: #5c6660;
+    font-size: 12px; }
 
 .SecondArticle {
   background-color: white;
   margin: 20px;
+  padding: 40px 20px;
   border: solid #cdcdcd 1px;
   box-shadow: 1px 1px grey; }
+  .SecondArticle h4 {
+    color: #5c6660; }
+  .SecondArticle p {
+    text-indent: 2em;
+    line-height: 1.5em; }
+  .SecondArticle p:first-of-type {
+    text-indent: 0em;
+    color: #5c6660;
+    font-size: 12px; }
+  .SecondArticle ul {
+    list-style-type: none; }
 
 .imageShow {
   background-color: white;
   margin: 20px;
+  padding: 40px 20px;
   border: solid #cdcdcd 1px;
   box-shadow: 1px 1px grey; }
+  .imageShow dd {
+    border: solid 1px #dedede;
+    width: 123px;
+    height: 125px;
+    text-align: center;
+    padding: 10px; }
+    .imageShow dd img {
+      width: 100px;
+      height: 82px;
+      padding-top: 20px; }
 
 .ThirdArticle {
   background-color: white;
   margin: 20px;
+  padding: 40px 20px;
   border: solid #cdcdcd 1px;
   box-shadow: 1px 1px grey; }
+  .ThirdArticle h4 {
+    color: #5c6660; }
+  .ThirdArticle p {
+    text-indent: 2em;
+    line-height: 1.5em; }
+  .ThirdArticle p:first-of-type {
+    text-indent: 0em;
+    color: #5c6660;
+    font-size: 12px; }
+  .ThirdArticle ol {
+    font-weight: bold; }
 
 .BaseInfo {
   background-color: white;
   margin: 20px;
+  padding: 40px 20px;
   border: solid #cdcdcd 1px;
   box-shadow: 1px 1px grey; }
+  .BaseInfo h2 {
+    border-left: solid 5px #dedede;
+    padding-left: 10px; }
 
 footer {
   display: fixed;

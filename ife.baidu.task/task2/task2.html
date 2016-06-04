@@ -3,7 +3,7 @@
 <head lang="zh-cn">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="./css/style.css">
-<title>TAKS1</title>
+<title>TAKS2</title>
 </head>
 
 <body>
@@ -19,7 +19,7 @@
 
 <article class="FirstArticle">
 <h2>文章一级标题</h2>
-<h2>文章二级标题</h2>
+<h4>文章二级标题</h4>
 <p>
 <span>文章作者</span>
 <span>文章发表时间</span>
@@ -35,7 +35,7 @@
 
 <article class="SecondArticle">
 <h2>另一篇文章一级标题</h2>
-<h2>文章二级标题</h2>
+<h4>文章二级标题</h4>
 <p>
 <span>文章作者</span>
 <span>文章发表时间</span>
@@ -77,7 +77,7 @@
 
 <article class="ThirdArticle">
 <h2>最后一篇文章一级标题</h2>
-<h2>文章二级标题</h2>
+<h4>文章二级标题</h4>
 
 <p>
 <span>文章作者</span>
@@ -90,7 +90,7 @@
 <li>排名3</li>
 </ol>
 
-下面是一个表格，给表格加了一个border="1"
+下面是一个表格，给表格加了一个border="1"好让你看出是一个表格，你们写html时候不需要加
 <table border="1">
 
 <tr align="left">
@@ -127,26 +127,29 @@
 
 <div class="BaseInfo">
 <h2>这里是一个侧栏，这个是侧栏的标题</h2>
-<h2>侧栏注册窗口标题</h2>
 
 <form>
+
 请输入邮箱地址:
 <input type="text" name="email" value="这是一个文本输入框">
 <br />
 <p>邮箱地址请按要求输入</p>
 请输入密码:
 <input type="text" name="password" value="这是一个文本输入框">
+<br />
 请重复输入密码:
 <input type="text" name="password2" value="这是一个文本输入框">
 <p>密码为6-16位英文数字</p>
 性别:
-<input type="radio" name="radio" value="男" checked="true">男
-<input type="radio" name="radio" value="女" >女
+<input type="radio" name="sex" value="男" checked="true">男
+<input type="radio" name="sex" value="女" >女
+<br />
 城市:
 <select name="city">
 <option value="杭州" selected="selected">杭州</option>
 <option value="北京">北京</option>
 </select>
+<br />
 爱好:
 <input type="checkbox" name="sport" value="sport">运动
 <input type="checkbox" name="music" value="music">艺术
@@ -156,6 +159,7 @@
 这是一个多行输入框，输入您的个人描述
 </textarea>
 <input type="submit" name="submit" value="确认提交">
+
 </form>
 </div>
 
