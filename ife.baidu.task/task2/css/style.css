@@ -1,7 +1,9 @@
-body {
+* {
   box-sizing: border-box;
   margin: 0px;
-  padding: 0px;
+  padding: 0px; }
+
+body {
   background-color: #dedede; }
 
 nav {
@@ -110,23 +112,25 @@ nav {
   .BaseInfo h2 {
     border-left: solid 5px #dedede;
     padding-left: 10px; }
-  .BaseInfo form label {
-    float: left;
-    border: solid 1px red;
-    text-align: right;
-    padding-right: 1em;
-    width: 370px; }
-  .BaseInfo form p {
-    padding-left: 370px; }
-  .BaseInfo form textarea {
-    width: 766px;
-    height: 100px; }
-  .BaseInfo form input[type="submit"] {
-    width: 100%;
-    color: white;
-    background-color: blue;
-    border-radius: 10px;
-    line-height: 30px; }
+  .BaseInfo form {
+    vertical-align: top; }
+    .BaseInfo form label {
+      float: left;
+      border: solid 1px red;
+      text-align: right;
+      padding-right: 1em;
+      width: 370px; }
+    .BaseInfo form p {
+      padding-left: 370px; }
+    .BaseInfo form textarea {
+      width: 766px;
+      height: 100px; }
+    .BaseInfo form input[type="submit"] {
+      width: 100%;
+      color: white;
+      background-color: blue;
+      border-radius: 10px;
+      line-height: 30px; }
 
 footer {
   display: fixed;

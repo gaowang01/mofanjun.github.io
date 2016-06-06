@@ -9,10 +9,13 @@ $TitleColor:#5c6660;
 	box-shadow: 1px 1px grey;
 }
 
-body{
+* {
 	box-sizing:border-box;
 	margin: 0px;
 	padding: 0px;
+}
+
+body{
 	background-color: $LightGray;
 }
 
@@ -154,8 +157,10 @@ nav {
 	}
 
 	form {
+		vertical-align: top;
 		label{
 			float:left;
+			
 			border: solid 1px red;
 			text-align: right;
 			padding-right: 1em;
