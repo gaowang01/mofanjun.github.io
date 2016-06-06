@@ -1,0 +1,54 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box; }
+
+div.floatStyle {
+  background-color: #eee;
+  border: solid 1px #999;
+  padding: 20px;
+  overflow: auto; }
+  div.floatStyle .leftColumn {
+    float: left;
+    border: solid 1px #999;
+    width: 200px;
+    padding: 20px; }
+    div.floatStyle .leftColumn span {
+      vertical-align: top; }
+  div.floatStyle section {
+    border: solid 1px #999;
+    margin-left: 220px;
+    margin-right: 140px;
+    padding: 20px; }
+  div.floatStyle .rightColumn {
+    float: right;
+    width: 120px;
+    border: solid 1px #999;
+    padding: 20px; }
+
+div.absoluteStyle {
+  background-color: #eee;
+  border: solid 1px #999;
+  padding: 20px;
+  position: relative; }
+  div.absoluteStyle .leftColumn {
+    position: absolute;
+    border: solid 1px #999;
+    width: 200px;
+    left: 20px;
+    top: 20px;
+    padding: 20px; }
+    div.absoluteStyle .leftColumn span {
+      vertical-align: top; }
+  div.absoluteStyle section {
+    border: solid 1px #999;
+    margin-left: 220px;
+    margin-right: 140px;
+    padding: 20px; }
+  div.absoluteStyle .rightColumn {
+    position: absolute;
+    border: solid 1px #999;
+    width: 120px;
+    right: 20px;
+    top: 20px;
+    padding: 20px; }

@@ -1,0 +1,88 @@
+//reset.css
+* {
+	margin: 0px;
+	padding: 0px;
+	box-sizing:border-box;
+}
+
+//
+$BodyBorder:solid 1px #999;
+body{
+	
+}
+
+div.floatStyle{
+	background-color: #eee;
+	border: $BodyBorder;
+	padding: 20px;
+	overflow: auto;
+	.leftColumn{
+
+		float:left;
+		border: $BodyBorder;
+		width: 200px;
+
+		//
+		padding: 20px;
+		span{
+			vertical-align: top;
+		}
+	}
+
+
+	section {
+		border:$BodyBorder;
+		margin-left: 220px;
+		margin-right: 140px;
+		//
+		padding: 20px;
+
+	}
+
+	.rightColumn {
+		float: right;
+		width: 120px;
+		border: $BodyBorder;
+		//
+		padding: 20px;
+	}
+}
+
+div.absoluteStyle{
+	background-color: #eee;
+	border: $BodyBorder;
+	padding: 20px;
+	position: relative;
+
+	.leftColumn{
+		position: absolute;
+		border: $BodyBorder;
+		width: 200px;
+		left: 20px;
+		top: 20px;
+
+		//
+		padding: 20px;
+		span {
+			vertical-align: top;
+		}
+	}
+
+	section {
+		border:$BodyBorder;
+		margin-left: 220px;
+		margin-right: 140px;
+		padding: 20px;
+	}
+
+	.rightColumn{
+		position: absolute;
+		border: $BodyBorder;
+		width: 120px;
+		right: 20px;
+		top: 20px;
+		//
+		padding: 20px;
+	}
+}
+
