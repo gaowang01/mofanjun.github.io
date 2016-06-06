@@ -1,0 +1,50 @@
+* {
+	padding: 0px;
+	margin:0px;
+	box-sizing:border-box;
+}
+
+@mixin Circle($width:100px,$height:100px){
+	width: $width;
+	height: $height;
+	border-radius: 50%;
+}
+
+.Object {
+	background-color: #ccc;
+	width: 400px;
+	height: 200px;
+	
+	//position
+	position: fixed;
+	top:50%;
+	left: 50%;
+	transform:translate(-50%,-50%);
+
+	//overflow
+	overflow: hidden;
+}
+
+.LeftCircle{
+	//circle
+	@include Circle(100px,100px);
+	background-color: #fc0;
+
+	//absolute
+	position: absolute;
+	transform:translate(-50%,-50%);
+
+}
+
+.RightCircle{
+	//circle
+	@include Circle(100px,100px);
+	background-color: #fc0;
+
+	//absolute
+	position: absolute;
+	right: 0px;
+	bottom: 0px;
+	transform:translate(50%,50%);
+}
+

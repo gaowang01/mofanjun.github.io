@@ -1,0 +1,32 @@
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box; }
+
+.Object {
+  background-color: #ccc;
+  width: 400px;
+  height: 200px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  overflow: hidden; }
+
+.LeftCircle {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: #fc0;
+  position: absolute;
+  transform: translate(-50%, -50%); }
+
+.RightCircle {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: #fc0;
+  position: absolute;
+  right: 0px;
+  bottom: 0px;
+  transform: translate(50%, 50%); }
