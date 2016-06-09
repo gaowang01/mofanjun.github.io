@@ -1,0 +1,151 @@
+* {
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px; }
+
+body {
+  background-color: #dedede; }
+
+header {
+  background-color: #333;
+  height: 60px;
+  width: 100%; }
+  header img {
+    padding-left: 20px;
+    padding-top: 5px; }
+  header nav {
+    float: right;
+    margin-top: 20px; }
+    header nav li {
+      display: inline-block;
+      margin-right: 10px; }
+      header nav li a {
+        color: white;
+        text-decoration: none; }
+      header nav li a.click {
+        color: #6f706b; }
+
+.FirstArticle {
+  background-color: white;
+  margin: 30px;
+  padding: 20px;
+  border: solid #cdcdcd 1px;
+  box-shadow: 1px 1px grey; }
+  .FirstArticle h2 {
+    padding: 5px 0px; }
+  .FirstArticle h4 {
+    color: #5c6660;
+    padding: 10px 0px; }
+  .FirstArticle p {
+    text-indent: 2em;
+    line-height: 1.5em; }
+  .FirstArticle span {
+    text-indent: 0em;
+    color: #5c6660;
+    font-size: 12px; }
+
+.SecondArticle {
+  background-color: white;
+  margin: 30px;
+  padding: 20px;
+  border: solid #cdcdcd 1px;
+  box-shadow: 1px 1px grey; }
+  .SecondArticle h2 {
+    padding: 5px 0px; }
+  .SecondArticle h4 {
+    color: #5c6660;
+    padding: 10px 0px; }
+  .SecondArticle p {
+    text-indent: 2em;
+    line-height: 1.5em; }
+  .SecondArticle span {
+    text-indent: 0em;
+    color: #5c6660;
+    font-size: 12px; }
+  .SecondArticle ul {
+    list-style-type: none; }
+
+.ImageShow {
+  background-color: white;
+  margin: 30px;
+  padding: 20px;
+  border: solid #cdcdcd 1px;
+  box-shadow: 1px 1px grey; }
+  .ImageShow dd {
+    border: solid 1px #dedede;
+    margin: 10px 0px;
+    width: 123px;
+    height: 125px;
+    text-align: center;
+    padding: 10px; }
+    .ImageShow dd img {
+      width: 100px;
+      height: 82px;
+      padding-top: 20px; }
+
+.ThirdArticle {
+  background-color: white;
+  margin: 30px;
+  padding: 20px;
+  border: solid #cdcdcd 1px;
+  box-shadow: 1px 1px grey; }
+  .ThirdArticle h2 {
+    padding: 5px 0px; }
+  .ThirdArticle h4 {
+    color: #5c6660;
+    padding: 10px 0px; }
+  .ThirdArticle span {
+    text-indent: 0em;
+    color: #5c6660;
+    font-size: 12px; }
+  .ThirdArticle ol {
+    font-weight: bold;
+    list-style-position: inside; }
+  .ThirdArticle table {
+    width: 100%; }
+  .ThirdArticle table, .ThirdArticle th, .ThirdArticle td {
+    border: solid 1px black;
+    border-collapse: collapse; }
+  .ThirdArticle thead {
+    background-color: black;
+    color: white; }
+  .ThirdArticle tfoot {
+    background-color: #dedede; }
+
+aside {
+  background-color: white;
+  margin: 30px;
+  padding: 20px;
+  border: solid #cdcdcd 1px;
+  box-shadow: 1px 1px grey; }
+  aside h2 {
+    border-left: solid 5px #dedede;
+    padding-left: 10px; }
+  aside form div {
+    font-size: 14px;
+    margin: 15px 0px; }
+  aside form label.Tip {
+    float: left;
+    text-align: right;
+    padding-right: 1em;
+    width: 370px; }
+  aside form textarea {
+    width: 50%;
+    height: 100px; }
+  aside form p {
+    padding-left: 370px; }
+  aside form input[type="submit"] {
+    width: 100%;
+    color: white;
+    background-color: blue;
+    border-radius: 10px;
+    line-height: 30px; }
+
+footer {
+  display: fixed;
+  bottom: 0px;
+  height: 50px;
+  background-color: black;
+  text-align: center;
+  padding-top: 15px;
+  color: white; }
