@@ -3,7 +3,7 @@ $TitleColor:#5c6660;
 
 @mixin articleStyle{
 	background-color: white; 
-	margin: 30px;
+	margin: 20px;
 	padding: 20px;
 	border: solid #cdcdcd 1px;
 	box-shadow: 1px 1px grey;
@@ -50,7 +50,7 @@ header {
 
 .FirstArticle{
 	@include articleStyle;
-
+	margin-right: 20px + 364px + 20px;
 	h2{
 		padding:5px 0px;
 	}
@@ -74,7 +74,7 @@ header {
 
 .SecondArticle{
 	@include articleStyle;
-
+	margin-right: 20px + 364px + 20px;
 	h2{
 		padding:5px 0px;
 	}
@@ -102,7 +102,9 @@ header {
 
 .ImageShow{
 	@include articleStyle;
+	margin-right: 20px + 364px + 20px;
 	dd {
+		float: left;
 		border: solid 1px $LightGray;
 		margin: 10px 0px;
 		width: 123px;
@@ -115,11 +117,17 @@ header {
 			padding-top: 20px;
 		} 
 	}
+
+	dl:after{
+		display: block;
+		content: "";
+		clear: both;
+	}
 }
 
 .ThirdArticle{
 	@include articleStyle;
-
+	margin-right: 20px + 364px + 20px;
 	h2{
 		padding:5px 0px;
 	}
@@ -162,7 +170,9 @@ header {
 
 aside{
 	@include articleStyle;
-	h2{
+	float: right;
+	width: 364px;
+	h4{
 		border-left: solid 5px $LightGray;
 		padding-left: 10px;
 	}
@@ -178,7 +188,7 @@ aside{
 			float:left;
 			text-align: right;
 			padding-right: 1em;
-			width: 370px;
+			width: 130px;
 
 		}
 
@@ -188,7 +198,10 @@ aside{
 		}
 
 		p{
-			padding-left: 370px;
+			font-size: 10px;
+			padding-left: 130px;
+			margin: 10px 0px;
+			color: $TitleColor;
 		}
 
 

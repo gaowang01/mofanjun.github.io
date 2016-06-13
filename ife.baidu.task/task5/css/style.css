@@ -27,10 +27,11 @@ header {
 
 .FirstArticle {
   background-color: white;
-  margin: 30px;
+  margin: 20px;
   padding: 20px;
   border: solid #cdcdcd 1px;
-  box-shadow: 1px 1px grey; }
+  box-shadow: 1px 1px grey;
+  margin-right: 404px; }
   .FirstArticle h2 {
     padding: 5px 0px; }
   .FirstArticle h4 {
@@ -46,10 +47,11 @@ header {
 
 .SecondArticle {
   background-color: white;
-  margin: 30px;
+  margin: 20px;
   padding: 20px;
   border: solid #cdcdcd 1px;
-  box-shadow: 1px 1px grey; }
+  box-shadow: 1px 1px grey;
+  margin-right: 404px; }
   .SecondArticle h2 {
     padding: 5px 0px; }
   .SecondArticle h4 {
@@ -67,11 +69,13 @@ header {
 
 .ImageShow {
   background-color: white;
-  margin: 30px;
+  margin: 20px;
   padding: 20px;
   border: solid #cdcdcd 1px;
-  box-shadow: 1px 1px grey; }
+  box-shadow: 1px 1px grey;
+  margin-right: 404px; }
   .ImageShow dd {
+    float: left;
     border: solid 1px #dedede;
     margin: 10px 0px;
     width: 123px;
@@ -82,13 +86,18 @@ header {
       width: 100px;
       height: 82px;
       padding-top: 20px; }
+  .ImageShow dl:after {
+    display: block;
+    content: "";
+    clear: both; }
 
 .ThirdArticle {
   background-color: white;
-  margin: 30px;
+  margin: 20px;
   padding: 20px;
   border: solid #cdcdcd 1px;
-  box-shadow: 1px 1px grey; }
+  box-shadow: 1px 1px grey;
+  margin-right: 404px; }
   .ThirdArticle h2 {
     padding: 5px 0px; }
   .ThirdArticle h4 {
@@ -114,11 +123,13 @@ header {
 
 aside {
   background-color: white;
-  margin: 30px;
+  margin: 20px;
   padding: 20px;
   border: solid #cdcdcd 1px;
-  box-shadow: 1px 1px grey; }
-  aside h2 {
+  box-shadow: 1px 1px grey;
+  float: right;
+  width: 364px; }
+  aside h4 {
     border-left: solid 5px #dedede;
     padding-left: 10px; }
   aside form div {
@@ -128,12 +139,15 @@ aside {
     float: left;
     text-align: right;
     padding-right: 1em;
-    width: 370px; }
+    width: 130px; }
   aside form textarea {
     width: 50%;
     height: 100px; }
   aside form p {
-    padding-left: 370px; }
+    font-size: 10px;
+    padding-left: 130px;
+    margin: 10px 0px;
+    color: #5c6660; }
   aside form input[type="submit"] {
     width: 100%;
     color: white;
