@@ -6,6 +6,11 @@
 
 body {
 	//字体
+	font-family: Georgia, "Times New Roman", 
+             "Microsoft YaHei", "微软雅黑", 
+             STXihei, "华文细黑", 
+             serif;
+
 	width:980px;
 	height: 1360px;
 	
@@ -232,7 +237,6 @@ div.BottomLeft{
 
 		font-size: 35px;
 		line-height: 36px;
-		word-spacing: 10px;
 		span {
 			font-size: 72px;
 			color: #f5e327;
@@ -427,7 +431,7 @@ div.ContentContainer{
 		span.R1 {
 			position: absolute;
 			top: 0px;
-			left: -50px;
+			left: 0px;
 
 			text-indent: 0em;
 			line-height: 1;
@@ -435,6 +439,7 @@ div.ContentContainer{
 			font-size: 72px;
 			color: #d45d5c;
 			
+			//border: dashed green 2px;
 		}
 
 		span.R2 {

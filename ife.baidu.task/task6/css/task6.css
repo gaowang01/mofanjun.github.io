@@ -1,9 +1,11 @@
+@charset "UTF-8";
 * {
   padding: 0px;
   margin: 0px;
   box-sizing: border-box; }
 
 body {
+  font-family: Georgia, "Times New Roman",  "Microsoft YaHei", "微软雅黑",  STXihei, "华文细黑",  serif;
   width: 980px;
   height: 1360px;
   margin: auto;
@@ -157,8 +159,7 @@ div.BottomLeft {
     font-weight: bold;
     text-transform: uppercase;
     font-size: 35px;
-    line-height: 36px;
-    word-spacing: 10px; }
+    line-height: 36px; }
     div.BottomLeft p.T1 span {
       font-size: 72px;
       color: #f5e327;
@@ -282,7 +283,7 @@ div.ContentContainer {
     div.ContentContainer p.RightParty span.R1 {
       position: absolute;
       top: 0px;
-      left: -50px;
+      left: 0px;
       text-indent: 0em;
       line-height: 1;
       font-size: 72px;

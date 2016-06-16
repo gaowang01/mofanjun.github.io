@@ -1,0 +1,1 @@
+function addAqiData(){}function renderAqiList(){}function addBtnHandle(){addAqiData(),renderAqiList()}function delBtnHandle(){renderAqiList()}function init(){var n=document.getElementById("add-btn");n.addEventListener("click",addBtnHandle,!1)}var aqiData={};init();
