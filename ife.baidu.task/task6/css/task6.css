@@ -1,11 +1,9 @@
-@charset "UTF-8";
 * {
   padding: 0px;
   margin: 0px;
   box-sizing: border-box; }
 
 body {
-  font-family: Georgia, "Times New Roman",  "Microsoft YaHei", "微软雅黑",  STXihei, "华文细黑",  serif;
   width: 980px;
   height: 1360px;
   margin: auto;
@@ -283,7 +281,7 @@ div.ContentContainer {
     div.ContentContainer p.RightParty span.R1 {
       position: absolute;
       top: 0px;
-      left: 0px;
+      left: -50px;
       text-indent: 0em;
       line-height: 1;
       font-size: 72px;

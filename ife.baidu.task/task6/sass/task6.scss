@@ -5,11 +5,11 @@
 }
 
 body {
-	//字体
-	font-family: Georgia, "Times New Roman", 
-             "Microsoft YaHei", "微软雅黑", 
-             STXihei, "华文细黑", 
-             serif;
+	//字体 
+	// font-family: Georgia, "Times New Roman", 
+ //             "Microsoft YaHei", "微软雅黑", 
+ //             STXihei, "华文细黑", 
+ //             serif;
 
 	width:980px;
 	height: 1360px;
@@ -285,16 +285,6 @@ div.BottomLeft{
 		 	color: #f5e327;
 		}
 
-		// p.C1{
-		// 	text-indent: 0;
-		// }
-
-		// p.C1:first-letter {
-		// 	float: left;
-		// 	font-size: 70px;
-		// 	color: #f5e327;
-
-		// }
 	} 
 	
 
@@ -431,7 +421,7 @@ div.ContentContainer{
 		span.R1 {
 			position: absolute;
 			top: 0px;
-			left: 0px;
+			left: -50px;
 
 			text-indent: 0em;
 			line-height: 1;
