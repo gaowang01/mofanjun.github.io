@@ -279,16 +279,20 @@ div.ContentContainer {
     line-height: 16px;
     text-indent: 3em; }
     div.ContentContainer p.RightParty span.R1 {
+      font-family: serif;
       position: absolute;
       top: 0px;
-      left: -50px;
+      left: 0px;
+      transform: translate(-50%, 0%);
       text-indent: 0em;
       line-height: 1;
       font-size: 72px;
       color: #d45d5c; }
     div.ContentContainer p.RightParty span.R2 {
+      font-family: serif;
       position: absolute;
       right: 0px;
+      transform: translate(-50%, 0%);
       text-indent: 0em;
       line-height: 1;
       font-size: 72px;

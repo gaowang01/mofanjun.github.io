@@ -419,9 +419,11 @@ div.ContentContainer{
 		text-indent: 3em;
 
 		span.R1 {
+			font-family: serif;
 			position: absolute;
 			top: 0px;
-			left: -50px;
+			left: 0px;
+			transform:translate(-50%,0%);
 
 			text-indent: 0em;
 			line-height: 1;
@@ -433,15 +435,17 @@ div.ContentContainer{
 		}
 
 		span.R2 {
+			font-family: serif;
 			position: absolute;
 			right: 0px;
+			transform:translate(-50%,0%);
 
 			text-indent: 0em;
 			line-height: 1;
 
 			font-size: 72px;
 			color: #d45d5c;
-			
+			//border: dashed green 2px;
 		}
 
 	}
