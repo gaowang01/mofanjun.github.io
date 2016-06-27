@@ -84,7 +84,8 @@ function citySelectChange() {
  * 初始化日、周、月的radio事件，当点击时，调用函数graTimeChange
  */
 function initGraTimeForm() {
-
+  var graTime = document.getElementById("form-gra-time");
+   
 }
 
 /**
@@ -114,4 +115,19 @@ function init() {
   initAqiChartData();
 }
 
-init();
+/*
+  触发函数
+*/
+function addEvent(func){
+  var oldFunc = window.onload;
+  if (typeof window.onload !== "function") {
+    window.onload = func;
+  }else{
+    window.onload = function(){
+      oldFunc();
+      func();
+    }
+  }
+}
+
+addEvent(init);

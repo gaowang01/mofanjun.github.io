@@ -1,0 +1,537 @@
+
+*{
+	margin: 0px;
+	padding: 0px;
+	border-size:border-box;
+}
+
+body {
+	min-width: 1280px;
+}
+
+
+
+$HeaderHeight:58px;	
+
+header {
+	height: $HeaderHeight;
+
+	.logo_style {
+		line-height: $HeaderHeight;
+		display: inline-block;
+		margin-left: 58px;
+		img {
+			vertical-align: text-bottom;
+		}
+
+		span {
+			font-size: 24px;
+		}
+	}
+
+
+	nav {
+		float: right;
+	}
+
+	li {
+		display: inline-block;
+		//margin-right: 20px;
+
+		a {
+			line-height: $HeaderHeight;
+			text-decoration: none;
+			font-size: 14px;
+			color: #a0a0a0;
+			padding-left: 10px;
+			padding-right: 10px;
+		}
+
+		.click {
+			color: #e76a6b;
+			padding-bottom: 18px;
+			border-bottom: solid #e76a6b 5px;
+		}
+	}
+
+	.login_style {
+		line-height: $HeaderHeight;
+		float: right;
+		margin-right: 58px;
+		img {
+			vertical-align: text-bottom;
+
+		}
+
+		input[type="button"] {
+			border: none;
+			background-color: white;
+			font-size: 16px;
+			color:#e76a6b;
+		}
+	}
+}
+
+main {
+	width:1280px;
+	margin: auto;
+}
+
+.nw_introduce_title {
+	background-image: url("/assets/banner_img.jpg");
+	background-repeat: no-repeat;
+	//size&&position
+	height: 690px;
+	width: 1280px;
+	margin: auto;
+
+	color: white;
+	padding-left: 116px;
+	p:first-child {
+		font-size: 58px;
+		//margin-top:229px;
+		padding-top: 229px;
+	}
+
+	p:nth-child(2) {
+		font-size: 18px;
+		margin-top: 32px;
+		line-height: 1.5;
+	}
+
+	input[type="button"] {
+		margin-top: 67px;
+		background-color: #e7504e;
+		width: 300px;
+		height: 60px;
+		border: none;
+		//font
+		color: white;
+		font-size: 27px;
+	}
+}
+
+.nw_introduce_content{
+	//size
+	height: 250px; 
+
+	li {
+		display: inline-block;
+		//li中间为什么有间隙
+		width: 24%;
+		height: 250px;
+		margin-top: 45px;
+
+		img {
+			display: block;
+			margin: auto;
+		}
+
+		p {
+			margin-top: 45px;
+			text-align: center;
+			border-right: solid 2px grey;
+		}
+
+	}
+
+	li:last-child{
+		p{
+			border: none;
+		}
+	}
+}
+
+.nw_question{
+	height: 360px;
+	background-color: #ededed;
+	border: dashed green 2px;
+	img {
+		display: block;
+		margin: 85px auto 45px auto;
+	}
+
+	p{
+		font-size: 58px;
+		color: #a0a0a0;
+		text-align: center;
+
+	}
+}
+
+.nw_site_query{
+	background-image: url("/assets/search_bac.jpg");
+	height: 340px;
+	text-align: center;
+	color: white;
+
+	 p:first-child {
+		font-size: 20px;
+		padding-top: 40px;
+	 }
+
+	 hr {
+	 	width: 30px;
+	 	height: 3px;
+	 	background-color: white;
+	 	margin: 10px auto;
+	 	border: none;
+	 }
+
+	 p:nth-child(3) {
+	 	font-size: 8px;
+	 }
+
+
+}
+
+.nw_example_sh{
+	height: 500px;
+
+	padding-left: 145px;
+	padding-top: 100px;
+
+	background-color: #f7f7f7;
+
+	ul {
+		list-style-type: none;
+	}
+
+	li {
+		float:left;
+		width: 22%;
+		img {
+			border: solid 1px #a5a5a5;
+			padding: 15px 10px;
+			display: block;
+			margin: auto;
+		}
+		//TODO:尝试使用伪类 减少class
+		p {	
+			text-align: center;	
+		}
+
+		p.example_title {
+			line-height: 2.0;
+		}
+
+		p.example_content {
+			font-size: 12px;
+			color: #a5a5a5;
+		}
+
+		p.ex_up_title {
+			font-size: 20px;
+			letter-spacing: 1.5em;
+			//border: dashed green 1px;
+			padding-left: 1.5em;
+		}
+
+		p.ex_up_content{
+			font-size: 12px;
+			color: #a5a5a5;
+
+			line-height: 2.0;
+		}
+	}
+}
+
+.nw_example_bj {
+	height: 565px;
+	background-image: url("/assets/pic07.jpg");
+	background-repeat: no-repeat;
+
+	.left_group {
+		float: left;
+		color: white;
+		width: 845px;
+		text-align: center;
+		//TODO:又出现首元素margin错误
+		padding-top: 200px;
+		p:first-child {
+			font-size: 47px;
+		}
+
+		p:nth-child(2){
+			font-size: 120px;
+			text-transform: uppercase;
+		}
+
+		p:nth-child(3),p:nth-child(4){
+			font-size: 22px;
+		}
+	}
+
+	.right_group {
+		float: right;
+		position: relative;
+		height: inherit;
+		//用调试看看左右大小
+		width: 1280px - 855px;
+		text-align: center;
+		p:first-child {
+			font-size: 18px;
+			padding-top: 200px;
+
+			span {
+				color: #e7504e;
+			}
+		}
+
+		//左边三角形
+		p:first-child::after {
+			//
+			position: absolute;
+			right: 100%;
+			top:50%;
+			margin-top: -15px;
+			content: " ";
+			//
+			border-width: 30px;
+			border-style: solid;
+			border-color: transparent white transparent transparent;
+		}
+		//正文
+		p:nth-child(2) {
+			color: #a0a0a0;
+			font-size: 10px;
+			line-height: 2.0;
+
+			text-align: left;
+			padding: 20px 65px;
+		}
+
+		//按钮
+		button {
+			color: #e7504e;
+			width: 105px;
+			height: 32px;
+			background-color: white;
+			border: solid #e7504e 1px;
+		}
+
+		//选择页
+		ul {
+			padding-top: 25px;
+		}
+
+		li{
+			display: inline-block;
+			border: solid 1px grey;
+			width: 8px;
+			height: 8px;
+			border-radius: 50%;
+
+			overflow: hidden;
+		}
+
+		li a {
+			text-decoration: none;
+		}
+
+		.active {
+			background-color: grey;
+		}
+
+	}
+}
+
+.nw_about {
+	height: 518px;
+	background-image: url("/assets/pic08.jpg");
+	background-repeat: no-repeat;
+	background-position: right;
+	//TODO:为什么长度会超出 hidden是临时方法
+	overflow: hidden;
+	.group_party {
+		width: 845px;
+		height: inherit;
+		.red_party {
+			float: left;
+			width: 50%;
+			height: inherit;
+			background-color: #e7504e;
+			//TODO:启用下值 导致red背景向下移动
+			//padding-top: 200px;
+			text-align: center;
+
+			p {
+				color:white;
+				font-size: 20px;
+				line-height: 1.5;
+				margin-top: 200px;
+				margin-bottom: 15px;
+			}
+
+			hr {
+				width: 25px;
+				margin: auto;
+				margin-bottom: 15px;
+			}
+
+			input[type="button"] {
+				//
+				background-color: transparent;
+				border: solid white 1px;
+				color: white;
+				//
+				width: 168px;
+				height: 43px;
+				//
+				font-size: 20px;
+			}
+		}
+
+		.white_party{
+			float: left;
+			width: 50%;
+			height: 100%;
+			//
+			padding-top: 200px;
+			text-align: center;
+
+			p {
+				color:black;
+				font-size: 20px;
+				line-height: 1.5;
+				margin-bottom: 15px;
+				//加入三角形
+				position: relative;
+
+			}
+
+			p::after{
+				content: " ";
+				position: absolute;
+				top: 50%;
+				left: 100%;
+				margin-top: -12px;
+				//
+				border-style: solid;
+				border-width: 25px;
+				border-color: transparent transparent transparent white;
+			}
+
+			hr {
+				width: 25px;
+				margin: auto;
+				margin-bottom: 15px;
+			}
+
+			input[type="button"] {
+				//
+				background-color: transparent;
+				border: solid #e7504e 1px;
+				color: #e7504e;
+				//
+				width: 168px;
+				height: 43px;
+				//
+				font-size: 20px;
+			}
+		}
+	}
+}
+
+//TODO:重新思考如何布局该元素
+.nw_join_us {
+	height: 750px;
+	text-align: center;
+	border:solid black 2px;
+	p:first-child {
+		font-size: 20px;
+		margin-bottom: 5px;
+	}
+
+	hr {
+		width: 25px;
+		height: 2px;
+		margin: auto;
+		background-color: red;
+		margin-bottom: 10px;
+	}
+
+	p:nth-child(3){
+		color: #a0a0a0;
+		font-size: 10px;
+		line-height: 1.2;
+		margin-bottom: 50px;
+	}
+}
+
+.nw_contact_us {
+	background-color: #33373e;
+	height: 360px;
+	text-align: center;
+	p{
+		color: white;
+	}
+
+	p:first-child {
+		//TODO:用首元素的padding-top是否合理
+		padding-top: 90px;
+		font-size: 20px;
+		line-height: 1.5;
+	}
+
+	p:nth-child(2) {
+		font-size: 12px;
+		line-height: 1.5;
+	}
+
+	div:nth-child(3){
+		padding-top: 20px;
+		input[type="text"]{
+			width:432px;
+			height: 32px;
+
+			//color: #a0a0a0;
+		}
+
+		button {
+			margin-left: -4px;
+			height: 36px;
+			width: 80px;
+
+			border:none;
+			background-color: #6e7077;
+			//font
+			font-size: 15px;
+			letter-spacing: 0.5em;
+			color: white;
+			//TODO:字体作祟
+			span {
+				vertical-align: sub;
+			}
+		}
+	}
+
+	ul:nth-child(4) {
+		margin-top: 30px;
+	}
+
+	li {
+		display: inline-block;
+		margin: 0px 10px;
+	}
+}
+
+footer {
+	background-color: #2f3139;
+	color: white;
+	font-size: 10px;
+	height: 50px;
+
+	span {
+		display: inline-block;
+		padding-top: 25px;
+	}
+
+	span:nth-child(2){
+		float: right;
+	}
+}
+
+
+
+

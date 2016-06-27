@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>绘制一个三角形</title>
+<!--顶点着色器-->
+<script id="shader-vs" type="x-shader/x-vertex">
+	attribute vec3 aVertexPosition;
+	void main(){
+		gl_Position = vec4(aVertexPosition,1.0);	
+	}											
+</script>
+<!--片段着色器-->
+<script id="shader-fs" type="x-shader/x-fragment">
+	precision mediump float;					
+	void main(){								
+		gl_FragColor = vec4(1.0,0.0,0.0,1.0);		
+	}											
+</script>
+<!--绘制一个三角形-->
+<script type="text/javascript">
+	var canvas,gl,shaderProgram,vertexBuffer;
+
+	function createGLContext(canvas){
+		var names = ["webgl","experimental-webgl"];
+		var context = null;
+		for (var i = 0; i < names.length; i++) {
+			try {
+				context = canvas.getContext(names[i]);
+			} catch(e){}
+
+			if (context) {
+				break;
+			}	
+		}
+
+		if (context) {
+			context.viewportWidth = canvas.width;
+			context.viewportHeight = canvas.height;
+		} else {
+			alert("Failed to create WEBGL context");
+		}
+
+		return context;
+	}
+
+	//编译着色器
+	// function loadShader(type,xSource){
+	// 	//创建shader对象
+	// 	var shader = gl.createShader(type);
+	// 	//set the source code of a WebGLShader
+	// 	gl.shaderSource(shader,xSource);
+	// 	//compileShader
+	// 	gl.compileShader(shader);
+
+	// 	if (!gl.getShaderParameter(shader,gl.COMPILE_STATUS)) {
+	// 		var info = gl.getShaderInfoLog(shader);
+	// 		alert("Error occur when compiled" + info);
+	// 		gl.deleteShader(shader);
+	// 		return null
+	// 	}
+	// 	return shader;
+	// }
+
+	function loadShaderFromDOM(id)
+	{
+		//元素节点
+		var shaderScript = document.getElementById(id);
+		if (!shaderScript) {
+			return null;
+		}
+
+		var shaderSource = "";
+		var currentChild = shaderScript.firstChild;
+		while(currentChild){
+			if (currentChild.nodeType === 3) {
+				shaderSource += currentChild.textContent;
+			}
+
+			currentChild = currentChild.nextSibling;
+		}
+
+		var shader;
+		if (shaderScript.type === "x-shader/x-fragment") {
+			shader = gl.createShader(gl.FRAGMENT_SHADER);
+		}else if(shaderScript.type === "x-shader/x-vertex"){
+			shader = gl.createShader(gl.VERTEX_SHADER);
+		}else {
+			return null;
+		}
+
+		gl.shaderSource(shader,shaderSource);
+		gl.compileShader(shader);
+
+		if (!gl.getShaderParameter(shader,gl.COMPILE_STATUS)) {
+			var info = gl.getShaderInfoLog(shader);
+			alert("Error occur when compiled" + info);
+			gl.deleteShader(shader);
+			return null;
+		}
+
+		return shader;
+	}
+
+	//创建程序对象和链接着色器
+	function setupShaders(){
+		//
+		var vertexShader = loadShaderFromDOM("shader-vs");//loadShader(gl.VERTEX_SHADER,vertexShaderSource);
+		var fragmentShader = loadShaderFromDOM("shader-fs");//loadShader(gl.FRAGMENT_SHADER,fragmentShaderSource); 
+		//创建program对象
+		shaderProgram = gl.createProgram();
+		//绑定原程序
+		gl.attachShader(shaderProgram,vertexShader);
+		gl.attachShader(shaderProgram,fragmentShader);
+		//links
+		gl.linkProgram(shaderProgram);
+
+		if (!gl.getProgramParameter(shaderProgram,gl.LINK_STATUS)) {
+			alert("Failed to setup shaders");
+		};
+		//在渲染中启用该program
+		gl.useProgram(shaderProgram);
+		//
+		shaderProgram.vertexPositionAttribute = gl.getAttribLocation(shaderProgram,"aVertexPosition");
+	}
+
+	//建立缓冲
+	function setupBuffers(){
+		vertexBuffer = gl.createBuffer();
+
+		gl.bindBuffer(gl.ARRAY_BUFFER,vertexBuffer);
+
+		var triangleVertices = [
+			0.0,0.5,0.0,
+			-0.5,-0.5,0.0,
+			0.5,-0.5,0.0
+		];
+
+		gl.bufferData(gl.ARRAY_BUFFER,new Float32Array(triangleVertices),
+			gl.STATIC_DRAW);
+
+		vertexBuffer.itemSize = 3;
+		vertexBuffer.numberOfItems= 3;
+	}
+
+	//绘制场景
+	function draw(){
+		gl.viewport(0,0,gl.viewportWidth,gl.viewportHeight);
+		gl.clear(gl.COLOR_BUFFER_BIT);
+
+		gl.vertexAttribPointer(shaderProgram.vertexAttributePointer,
+			vertexBuffer.itemSize,gl.FLOAT,false,0,0);
+
+		gl.enableVertexAttribArray(shaderProgram.vertexPositionAttribute);
+		gl.drawArrays(gl.TRIANGLES,0,vertexBuffer.numberOfItems);
+	}
+
+	function startup(){
+		canvas = document.getElementById("myGLCanvas");
+		gl = createGLContext(canvas);
+		setupShaders();
+		setupBuffers();
+		//清理的颜色
+		gl.clearColor(0.0,1.0,0.0,1.0);
+		draw();
+	}
+</script>
+</head>
+
+<body onload="startup();">
+	<canvas id="myGLCanvas" width="500" height="500">
+	</canvas>
+</body>
+</html>
