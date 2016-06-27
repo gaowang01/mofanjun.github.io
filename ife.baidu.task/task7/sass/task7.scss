@@ -146,10 +146,13 @@ main {
 .nw_question{
 	height: 360px;
 	background-color: #ededed;
-	border: dashed green 2px;
+	//border: dashed green 2px;
 	img {
 		display: block;
-		margin: 85px auto 45px auto;
+		//margin: 85px auto 45px auto;
+		margin: auto;
+		padding-top: 85px;
+		padding-bottom: 45px;
 	}
 
 	p{
@@ -436,12 +439,14 @@ main {
 
 //TODO:重新思考如何布局该元素
 .nw_join_us {
-	height: 750px;
+	height: 700px;
 	text-align: center;
-	border:solid black 2px;
+	//border:solid black 2px;
+	//head
 	p:first-child {
 		font-size: 20px;
 		margin-bottom: 5px;
+		padding-top: 100px;
 	}
 
 	hr {
@@ -456,7 +461,85 @@ main {
 		color: #a0a0a0;
 		font-size: 10px;
 		line-height: 1.2;
-		margin-bottom: 50px;
+		margin-bottom: 80px;
+	}
+
+	//left
+	.nw_join_us_left{
+		float: left;
+		width: 275px;
+		text-align: left;
+		margin-left: 100px;
+		dl {
+			//padding-bottom: 30px;
+			margin-bottom: 35px;
+		}
+
+		dd {
+			color: #a0a0a0;
+			font-size: 10px;
+			margin-top: 20px;
+			line-height: 1.5;
+
+		}
+
+		dd:last-child {
+			margin-top: 3px;
+		}
+
+		button {
+			float: right;
+			border: none;
+			background-color: white;
+			color: #a0a0a0;
+		}
+
+		dd:after {
+			content: "";
+			visibility: hidden;
+			display: block;
+			height: 0;
+			clear: both;
+		}
+	}
+
+	//right
+	form {
+		width: 640px;
+		float: left;
+		//border: 2px solid red;
+		margin-left: 50px;
+
+
+		input[type="text"]{
+			float: left;
+			width: 48%;
+			height: 40px;
+			margin-bottom: 15px;
+			background-color: #ededee;
+			border: none;
+		}
+
+		input:nth-child(2),input:nth-child(4){
+			float: right;
+		}
+
+		textarea {
+			width: 100%;
+			height: 120px;
+			margin-bottom: 15px;
+			background-color: #ededee;
+			border: none;
+			resize:none;		
+		}
+
+		input[type="submit"]{
+			width: 100%;
+			background-color: #ededee;
+			border: none;
+			font-size: 14px;
+			height: 40px;
+		}
 	}
 }
 
@@ -528,8 +611,11 @@ footer {
 		padding-top: 25px;
 	}
 
-	span:nth-child(2){
+	a:nth-child(2){
+		color: white;
 		float: right;
+		padding-top: 25px;
+		text-decoration: none;
 	}
 }
 
