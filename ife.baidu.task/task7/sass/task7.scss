@@ -79,7 +79,7 @@ main {
 }
 
 .nw_introduce_title {
-	background-image: url("/assets/banner_img.jpg");
+	background-image: url("../assets/banner_img.jpg");
 	background-repeat: no-repeat;
 	//size&&position
 	height: 690px;
@@ -161,7 +161,7 @@ main {
 }
 
 .nw_site_query{
-	background-image: url("/assets/search_bac.jpg");
+	background-image: url("../assets/search_bac.jpg");
 	height: 340px;
 	text-align: center;
 	color: white;
@@ -239,7 +239,7 @@ main {
 
 .nw_example_bj {
 	height: 565px;
-	background-image: url("/assets/pic07.jpg");
+	background-image: url("../assets/pic07.jpg");
 	background-repeat: no-repeat;
 
 	.left_group {
@@ -339,7 +339,7 @@ main {
 
 .nw_about {
 	height: 518px;
-	background-image: url("/assets/pic08.jpg");
+	background-image: url("../assets/pic08.jpg");
 	background-repeat: no-repeat;
 	background-position: right;
 	//TODO:为什么长度会超出 hidden是临时方法
