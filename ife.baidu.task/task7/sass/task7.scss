@@ -186,6 +186,56 @@ main {
 	 	font-size: 8px;
 	 }
 
+	 .SelectGroup{
+	 	margin-left: 125px;
+	 	margin-top: 50px;
+	 }
+
+	 .MySelect{
+	 	width: 238px;
+	 	//display: inline-block;
+	 	float: left;
+	 	margin-right: 30px;
+	 	//border: dashed green 2px;
+	 	input[type="text"]{
+	 		float: left;
+	 		width: 100%;
+	 		height: 35px;
+	 		border: none;
+	 		background-image: url("../assets/btnb.png");
+	 		background-repeat: no-repeat;
+	 		background-position: right;
+	 	}
+
+	 	ul {
+	 		//display: none;
+	 		visibility: hidden;
+	 		width: 100%;
+	 		list-style-type: none;
+	 		border: solid red 1px;
+	 		background-color: #e3e3e3;
+	 		font-size: 14px;
+	 		text-align: left;
+	 		color:grey;
+	 	}
+
+	 }
+
+	 button {
+	 	float: left;
+	 	width: 238px;
+	 	height: 35px;
+	 	border: none;
+	 	background-color: #e7504e;
+	 	color: white;
+
+	 	
+	 	span {
+	 		font-size: 14px;
+	 		word-spacing: 10px;
+	 	}
+	 }
+
 
 }
 
