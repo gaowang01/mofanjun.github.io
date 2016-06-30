@@ -1,4 +1,44 @@
-#aqi-chart-wrap {
-	width: 960px;
-	margin: auto;
+.aqi-chart-wrap {
+	width: 1280px;
+	height: 1000px;
+	border: solid 1px green;
+	position: relative;
+	overflow: hidden;
 }
+
+@keyframes example {
+	from {
+		bottom: -300px
+	}
+
+	to {
+		bottom: 0px;
+	}
+}
+
+.aqi-bar {
+	position: absolute;
+	display: inline-block;
+	bottom: 0;
+
+	animation-name: example;
+    animation-duration: 1.5s;
+}
+
+.aqi-bar-tip {
+	position:absolute;
+	left: 100%;
+	background-color: grey;
+	color: white;
+	font-size: 10px;
+	width: 8em;
+	z-index: 1;
+}
+
+
+
+
+
+
+
+
