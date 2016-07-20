@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>绘制一个三角形</title>
+<!--glMatrix矩阵库-->
+<script type="text/javascript" src="glMatrix.js"></script>
+<!--顶点着色器-->
+<script id="shader-vs" type="x-shader/x-vertex">
+	attribute vec3 aVertexPosition;
+	attribute vec4 aVertexColor;
+	//矩阵变幻
+	uniform mat4 uMVMatrix;
+	uniform mat4 uPMatrix;
+	//输出到fragment
+	varying vec4 vColor;
+	void main(){
+		vColor = aVertexColor;
+		gl_Position = uPMatrix * uMVMatrix * vec4(aVertexPosition,1.0);	
+	}											
+</script>
+<!--片段着色器-->
+<script id="shader-fs" type="x-shader/x-fragment">
+	precision mediump float;
+
+	varying vec4 vColor;					
+	void main(){								
+		gl_FragColor = vColor;		
+	}											
+</script>
+<!--画一个桌子-->
+<script type="text/javascript">
+	var canvas,gl,shaderProgram;
+	var modelViewMatrix,projectionMatrix;
+	var modelViewMatrixStack;
+	//floor
+	var floorVertexPositionBuffer,floorVertexIndexBuffer;
+	var cubeVertexPositionBuffer, cubeVertexIndexBuffer;
+
+
+	function createGLContext(canvas){
+		var names = ["webgl","experimental-webgl"];
+		var context = null;
+		for (var i = 0; i < names.length; i++) {
+			try {
+				context = canvas.getContext(names[i]);
+			} catch(e){}
+
+			if (context) {
+				break;
+			}	
+		}
+
+		if (context) {
+			context.viewportWidth = canvas.width;
+			context.viewportHeight = canvas.height;
+		} else {
+			alert("Failed to create WEBGL context");
+		}
+
+		return context;
+	}
+
+	function loadShaderFromDOM(id)
+	{
+		//元素节点
+		var shaderScript = document.getElementById(id);
+		if (!shaderScript) {
+			return null;
+		}
+
+		var shaderSource = "";
+		var currentChild = shaderScript.firstChild;
+		while(currentChild){
+			if (currentChild.nodeType === 3) {
+				shaderSource += currentChild.textContent;
+			}
+
+			currentChild = currentChild.nextSibling;
+		}
+
+		var shader;
+		if (shaderScript.type === "x-shader/x-fragment") {
+			shader = gl.createShader(gl.FRAGMENT_SHADER);
+		}else if(shaderScript.type === "x-shader/x-vertex"){
+			shader = gl.createShader(gl.VERTEX_SHADER);
+		}else {
+			return null;
+		}
+
+		gl.shaderSource(shader,shaderSource);
+		gl.compileShader(shader);
+
+		if (!gl.getShaderParameter(shader,gl.COMPILE_STATUS)) {
+			var info = gl.getShaderInfoLog(shader);
+			alert("Error occur when compiled" + info);
+			gl.deleteShader(shader);
+			return null;
+		}
+
+		return shader;
+	}
+
+	//创建程序对象和链接着色器
+	function setupShaders(){
+		//
+		var vertexShader = loadShaderFromDOM("shader-vs");
+		var fragmentShader = loadShaderFromDOM("shader-fs");
+		//创建program对象
+		shaderProgram = gl.createProgram();
+		//绑定原程序
+		gl.attachShader(shaderProgram,vertexShader);
+		gl.attachShader(shaderProgram,fragmentShader);
+		//links
+		gl.linkProgram(shaderProgram);
+
+		if (!gl.getProgramParameter(shaderProgram,gl.LINK_STATUS)) {
+			alert("Failed to setup shaders");
+		};
+		//在渲染中启用该program
+		gl.useProgram(shaderProgram);
+		//js和glsl交互
+		shaderProgram.vertexPositionAttribute = gl.getAttribLocation(shaderProgram,"aVertexPosition");
+		shaderProgram.vertexColorAttribute = gl.getAttribLocation(shaderProgram,"aVertexColor");
+		gl.enableVertexAttribArray(shaderProgram.vertexPositionAttribute);
+		
+		shaderProgram.uMVMatrix = gl.getUniformLocation(shaderProgram,"uMVMatrix");
+		shaderProgram.uPMatrix = gl.getUniformLocation(shaderProgram,"uPMatrix");
+
+		//创建变幻矩阵及堆栈
+		modelViewMatrix = mat4.create();
+		projectionMatrix = mat4.create();
+
+		modelViewMatrixStack = [];
+
+	}
+
+	function pushModelViewMatrix(){
+		var copyToPush = mat4.create(modelViewMatrix);
+		modelViewMatrixStack.push(copyToPush);
+	}
+
+	function popModelViewMatrix(){
+		if (modelViewMatrixStack.length === 0) {
+			alert("[Errir 0]:modelViewMatrixStack length equal zero");
+		}
+
+		modelViewMatrix = modelViewMatrixStack.pop();
+	}
+
+
+	//Buffers 设置绘画缓存	
+	function setupFloorBuffers(){
+		floorVertexPositionBuffer = gl.createBuffer();
+		gl.bindBuffer(gl.ARRAY_BUFFER,floorVertexPositionBuffer);
+		//
+		
+		var floorVertexPosition = [
+			5.0,	0.0,	5.0,
+			5.0,	0.0,	-5.0,
+			-5.0,	0.0,	-5.0,
+			-5.0,	0.0,	5.0
+		];
+		
+		gl.bufferData(gl.ARRAY_BUFFER,new Float32Array(floorVertexPosition),gl.STATIC_DRAW);
+		floorVertexPositionBuffer.itemSize = 3;
+		floorVertexPositionBuffer.numberOfItems = 4;
+
+		//建立索引
+		
+		floorVertexIndexBuffer = gl.createBuffer();
+		gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER,floorVertexIndexBuffer);
+		//
+		var floorVertexIndices = [0,1,2,3];
+		gl.bufferData(gl.ELEMENT_ARRAY_BUFFER,new Uint16Array(floorVertexIndices),gl.STATIC_DRAW);
+		floorVertexIndexBuffer.itemSize = 1;
+		floorVertexIndexBuffer.numberOfItems = 4;		
+	}
+
+	//
+	function setupCubeBuffers(){
+		cubeVertexPositionBuffer = gl.createBuffer();
+		gl.bindBuffer(gl.ARRAY_BUFFER,cubeVertexPositionBuffer);
+
+		//cube vertex
+		var cubeVertexPosition = [
+	       // Front face
+	       1.0,  1.0,  1.0, //v0
+	      -1.0,  1.0,  1.0, //v1
+	      -1.0, -1.0,  1.0, //v2
+	       1.0, -1.0,  1.0, //v3
+
+	       // Back face
+	       1.0,  1.0, -1.0, //v4
+	      -1.0,  1.0, -1.0, //v5
+	      -1.0, -1.0, -1.0, //v6
+	       1.0, -1.0, -1.0, //v7
+	       
+	       // Left face
+	      -1.0,  1.0,  1.0, //v8
+	      -1.0,  1.0, -1.0, //v9
+	      -1.0, -1.0, -1.0, //v10
+	      -1.0, -1.0,  1.0, //v11
+	       
+	       // Right face
+	       1.0,  1.0,  1.0, //12
+	       1.0, -1.0,  1.0, //13
+	       1.0, -1.0, -1.0, //14
+	       1.0,  1.0, -1.0, //15
+	       
+	        // Top face
+	        1.0,  1.0,  1.0, //v16
+	        1.0,  1.0, -1.0, //v17
+	       -1.0,  1.0, -1.0, //v18
+	       -1.0,  1.0,  1.0, //v19
+	       
+	        // Bottom face
+	        1.0, -1.0,  1.0, //v20
+	        1.0, -1.0, -1.0, //v21
+	       -1.0, -1.0, -1.0, //v22
+	       -1.0, -1.0,  1.0, //v23
+  		];
+
+		gl.bufferData(gl.ARRAY_BUFFER,new Float32Array(cubeVertexPosition),
+			gl.STATIC_DRAW);
+		cubeVertexPositionBuffer.itemSize = 3;
+		cubeVertexPositionBuffer.numberOfItems = 24;
+
+		//cube vertex indices
+		cubeVertexIndexBuffer = gl.createBuffer();
+		gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER,cubeVertexIndexBuffer);
+		var cubeVertexIndices = [
+            0, 1, 2,      0, 2, 3,    // Front face
+            4, 6, 5,      4, 7, 6,    // Back face
+            8, 9, 10,     8, 10, 11,  // Left face
+            12, 13, 14,   12, 14, 15, // Right face
+            16, 17, 18,   16, 18, 19, // Top face
+            20, 22, 21,   20, 23, 22  // Bottom face
+        ];
+        gl.bufferData(gl.ELEMENT_ARRAY_BUFFER,new Uint16Array(cubeVertexIndices),gl.STATIC_DRAW);
+        cubeVertexIndexBuffer.itemSize = 1;
+        cubeVertexIndexBuffer.numberOfItems = 36;
+	}
+	
+
+	function setupBuffers(){
+		setupFloorBuffers();
+		setupCubeBuffers();
+	}
+
+
+	//绘制场景
+	function uploadModelViewMatrixToShader(){
+		gl.uniformMatrix4fv(shaderProgram.uMVMatrix,false,modelViewMatrix);
+	}
+
+	function uploadProjectionMatrixToShader(){
+		gl.uniformMatrix4fv(shaderProgram.uPMatrix,false,projectionMatrix);
+	}
+
+	function drawFloor(r,g,b,a){
+		//不使用缓存
+		gl.disableVertexAttribArray(shaderProgram.vertexColorAttribute);
+		//
+		gl.vertexAttrib4f(shaderProgram.vertexColorAttribute,r,g,b,a);
+		//Draw the floor
+		gl.bindBuffer(gl.ARRAY_BUFFER, floorVertexPositionBuffer);
+		gl.vertexAttribPointer(shaderProgram.vertexPositionAttribute,
+			floorVertexPositionBuffer.itemSize,gl.FLOAT,false,0,0);
+
+		gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, floorVertexIndexBuffer);
+		gl.drawElements(gl.TRIANGLE_FAN,floorVertexIndexBuffer.numberOfItems,
+			gl.UNSIGNED_SHORT,0);
+	}
+
+	function drawCube(r,g,b,a){
+		//set color
+		gl.disableVertexAttribArray(shaderProgram.vertexColorAttribute);
+		gl.vertexAttrib4f(shaderProgram.vertexColorAttribute,r,g,b,a);
+
+		//set position
+		gl.bindBuffer(gl.ARRAY_BUFFER,cubeVertexPositionBuffer);
+		gl.vertexAttribPointer(shaderProgram.vertexPositionAttribute,cubeVertexPositionBuffer.itemSize,gl.FLOAT,false,0,0);
+
+		gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER,cubeVertexIndexBuffer);
+		gl.drawElements(gl.TRIANGLES,cubeVertexIndexBuffer.numberOfItems,gl.UNSIGNED_SHORT,0);
+	}
+
+	function drawTable(){
+		  // Draw table top
+		  pushModelViewMatrix();
+		  mat4.translate(modelViewMatrix, [0.0, 1.0, 0.0], modelViewMatrix);
+		  mat4.scale(modelViewMatrix, [2.0, 0.1, 2.0], modelViewMatrix); 
+		  uploadModelViewMatrixToShader();
+		  // Draw the actual cube (now scaled to a cuboid) in brown color
+		  drawCube(0.72, 0.53, 0.04, 1.0); // arguments set brown color
+		  popModelViewMatrix();
+  
+		  // Draw table legs
+		  for (var i=-1; i<=1; i+=2) {
+		    for (var j= -1; j<=1; j+=2) {
+		      pushModelViewMatrix(); 
+		      mat4.translate(modelViewMatrix, [i*1.9, -0.1, j*1.9], modelViewMatrix);
+		      mat4.scale(modelViewMatrix, [0.1, 1.0, 0.1], modelViewMatrix);
+		      uploadModelViewMatrixToShader();
+		      drawCube(0.72, 0.53, 0.04, 1.0); // argument sets brown color
+		      popModelViewMatrix();
+		    }
+		  }  
+	}
+	
+
+	function draw(){
+		gl.viewport(0,0,gl.viewportWidth,gl.viewportHeight);
+		gl.clear(gl.COLOR_BUFFER_BIT);
+
+		mat4.perspective(60,gl.viewportWidth / gl.viewportHeight,0.1,100.0,projectionMatrix);
+
+		mat4.identity(modelViewMatrix);
+		mat4.lookAt([8,5,-10],[0,0,0],[0,1,0],modelViewMatrix);
+
+		uploadModelViewMatrixToShader(modelViewMatrix);
+		uploadProjectionMatrixToShader(projectionMatrix);
+
+		//Draw floor in red color
+		drawFloor(1.0,0.0,0.0,1.0);
+
+		//draw table
+	  	pushModelViewMatrix();
+	  	mat4.translate(modelViewMatrix, [0.0, 1.1, 0.0], modelViewMatrix);
+	  	uploadModelViewMatrixToShader();
+	  	drawTable();
+	  	popModelViewMatrix();
+		//draw table box
+		pushModelViewMatrix();
+		mat4.translate(modelViewMatrix, [0.0, 2.7 ,0.0], modelViewMatrix);
+		mat4.scale(modelViewMatrix, [0.5, 0.5, 0.5], modelViewMatrix);
+		uploadModelViewMatrixToShader();
+		drawCube(0.0, 0.0, 1.0, 1.0);
+		popModelViewMatrix();
+	}
+
+
+
+	function startup(){
+		canvas = document.getElementById("myGLCanvas");
+		gl = createGLContext(canvas);
+		setupShaders();
+		setupBuffers();
+		//清理的颜色
+		gl.clearColor(1.0,1.0,1.0,1.0);
+		draw();
+	}
+</script>
+</head>
+
+<body onload="startup();">
+	<canvas id="myGLCanvas" width="500" height="500">
+	</canvas>
+</body>
+</html>
