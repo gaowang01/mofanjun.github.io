@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Theme Simply Me</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!--add bootstrap-->
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <!--Font-->
+  <link href="http://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+  <!--style-->
+  <style type="text/css">
+  		.bg-1 {
+  			background-color: #1abc9c;/*Green*/
+  			color:#ffffff;
+  		}
+
+  		.bg-2 {
+  			background-color: #474e5d;/*Dark Blue*/
+  			color:#ffffff;
+  		}
+
+  		.bg-3 {
+  			background-color: #ffffff;/*White*/
+  			color: #555555;
+  		}
+
+  		.bg-4 {
+  			background-color: #2f2f2f;
+  			color: #ffffff;
+  		}
+
+  		.container-fluid {
+  			padding-top: 70px;
+  			padding-bottom: 70px;
+  		}
+
+  		.margin {
+  			margin-bottom: 45px;
+  		}
+
+  		.navbar {
+  			padding-top: 15px;
+  			padding-bottom: 15px;
+  			border: 0;
+  			border-radius: 0;
+  			margin-bottom: 0;
+  			font-size: 12px;
+  			letter-spacing: 5px;
+  		}
+
+  		.navbar-nav li a:hover{
+  			color: #1abc9c !important;
+  		}
+
+  		body {
+		    font: 20px "Montserrat", sans-serif;
+		    line-height: 1.8;
+		    color: #f5f6f7;
+		}
+
+		p {font-size: 16px;}
+  </style>
+</head>
+<body>
+	<nav class="navbar navbar-default">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNav">
+					<div class="icon-bar"></div>
+					<div class="icon-bar"></div>
+					<div class="icon-bar"></div>
+				</button>
+				<a class="navbar-brand">Me</a>
+			</div>
+			
+			<div id="myNav" class="collapse navbar-collapse">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#">Who</a></li>
+					<li><a href="#">What</a></li>
+					<li><a href="#">Where</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<div class="container-fluid bg-1 text-center">
+		<h3 class="margin">Who Am I?</h3>
+		<img src="bird.jpg" alt="Bird" class="img-circle img-responsive margin" style="display:inline">
+		<h3 class="margin">I'm an adventurer</h3>
+	</div>
+
+	<div class="container-fluid bg-2 text-center">
+	  <h3 class="margin">What Am I?</h3>
+	  <p>Lorem ipsum..</p>
+	  <a herf="#" class="btn btn-default btn-lg">
+	  	<span class="glyphicon glyphicon-search"></span>
+	  	Search
+	  </a>
+	</div>
+
+	<div class="container-fluid bg-3 text-center">
+	  <h3 class="margin">Where To Find Me?</h3>
+	  <div class="row">
+	  	<!--If you want the image to span the entire width of the screen when it starts to stack, add width:100% to the image.-->
+	  	<div class="col-sm-4">
+	  		<p>1</p>
+	  		<img src="birds1.jpg" alt="Bird1" class="image-responsive margin" style="width:100%">
+	  	</div>
+
+	  	<div class="col-sm-4">
+	  		<p>2</p>
+	  		<img src="birds2.jpg" alt="Bird2" class="image-responsive margin"
+	  		style="width:100%">
+	  	</div>
+
+	  	<div class="col-sm-4">
+	  		<p>3</p>
+	  		<img src="birds3.jpg" alt="Bird2" class="image-responsive margin"
+	  		style="width:100%">
+	  	</div>
+
+	  </div>
+	</div>
+
+	<footer class="container-fluid bg-4 text-center">
+		  <p>Bootstrap Theme Made By 
+		  	<a href="http://mofanjun.github.io">mofanjun</a>
+		  </p> 
+	</footer>
+</body>
+</html>
