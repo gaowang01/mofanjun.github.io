@@ -7,13 +7,58 @@
   <!--bootstrap
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-  -->
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>-->
+  <!--local-->
   <link rel="stylesheet" href="../bootstrap.min.css">
   <script src="../jquery.min.js"></script>
   <script src="../bootstrap.min.js"></script>
-
+  
   <style type="text/css">
+      body {
+        position: relative;
+      }
+
+      h2 {
+        font-size: 24px;
+        text-transform: uppercase;
+        color: #303030;
+        font-weight: 600;
+        margin-bottom: 30px;
+      }
+
+    h4 {
+      font-size: 19px;
+      line-height: 1.375em;
+      color: #303030;
+      font-weight: 400;
+      margin-bottom: 30px;
+    }
+
+      .navbar {
+        margin-bottom: 0;
+        background-color: #f4511e;
+        z-index: 9999;
+        border: 0;
+        font-size: 12px !important;
+        line-height: 1.42857143 !important;
+        letter-spacing: 4px;
+        border-radius: 0;
+      }
+
+      .navbar li a,.navbar .navbar-brand {
+        color: #fff !important;
+      }
+
+      .navbar li a:hover, .navbar-nav li.active a{
+        color: #f4511e !important;
+        background-color: #fff !important;
+      }
+
+      .navbar-default .navbar-toggle {
+        border-color: transparent;
+        color: #fff !important;
+      }
+
   		.jumbotron {
   			background-color: #f4511e;/*Orange*/
   			color: #ffffff;
@@ -117,6 +162,52 @@
         color: #fff;
     }
 
+    footer .glyphicon {
+      font-size: 20px;
+      margin-bottom: 20px;
+      color: #f4511e;
+    }
+    /*
+      animation
+    */
+    @keyframes slide {
+      0% {
+        opacity: 0;
+        transform:translateY(70%);
+      };
+
+      100% {
+        opacity: 100%;
+        transform:translateY(0%);
+      };
+    }
+
+    @-webkit-keyframes slide {
+      0% {
+        opacity: 0;
+        -webkit-transform:translateY(70%);
+      };
+
+      100% {
+        opacity: 1;
+        -webkit-transform:translateY(0%);
+      };
+    }
+
+    .slideanim {
+      visibility: hidden;
+    }
+
+    .slide {
+      animation-name: slide;
+      -webkit-animation-name:slide;
+
+      anmation-duration:1s;
+      -webkit-animation-duration:1s;
+
+      visibility: visible;
+    }
+
       /*
         media query
       */
@@ -128,8 +219,60 @@
   		}
 
   </style>
+  <script type="text/javascript">
+      $(document).ready(function(){
+          $(".navbar a,footer a[href='#myPage']").on('click',function(event){
+            
+            if (this.hash !== "") {
+              event.preventDefault();
+
+              var hash = this.hash;
+
+              $('html,body').animate({scrollTop:$(hash).offset().top},900,function(){
+                  window.location.hash = hash;
+              });//end animate
+            }
+            
+          });//end cliick
+
+          $(window).scroll(function() {
+            $(".slideanim").each(function(){
+              var pos = $(this).offset().top;
+
+              var winTop = $(window).scrollTop();
+              if (pos < winTop + 600) {
+                $(this).addClass("slide");
+              }
+             });
+          });
+      });
+  </script>
 </head>
-<body>
+<body id="myPage" data-spy="scroll" data-toggle=".navbar" data-offset="60">
+<!--navbar-->
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#MyNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Logo</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="MyNavbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#about">ABOUT</a></li>
+        <li><a href="#services">SERVICES</a></li>
+        <li><a href="#portfolio">PORTFOLIO</a></li>
+        <li><a href="#pricing">PRICING</a></li>
+        <li><a href="#contact">CONTACT</a></li>
+      </ul>
+    </div>
+
+  </div>
+</nav>
 <!--jumbotron-->
 <div class="jumbotron text-center">
 	<h1>Company</h1> 
@@ -139,8 +282,8 @@
 		<button class="btn btn-danger">Subscribe</button>
 	</form>
 </div>
-<!--Company page-->
-<div class="container-fluid">
+<!--About Company -->
+<div class="container-fluid" id="about">
   	<div class="row">
   		<div class="col-sm-8">
 		  	<h2>About Company Page</h2>
@@ -150,16 +293,16 @@
 	  	</div>
 
 	  	<div class="col-sm-4">
-	  		<span class="glyphicon glyphicon-signal logo"></span>
+	  		<span class="glyphicon glyphicon-signal logo slideanim"></span>
 	  	</div>
   	</div>
 
 </div>
-<!--Value-->
+
 <div class="container-fluid bg-grey">
 	<div class="row">
 		<div class="col-sm-4">
-			<span class="glyphicon glyphicon-globe logo"></span>
+			<span class="glyphicon glyphicon-globe logo slideanim"></span>
 		</div>
 
 		<div class="col-sm-8">
@@ -169,23 +312,23 @@
 		</div>
 	</div>
 </div>
-<!--2*3 column-->
-<div class="container-fluid text-center">
+<!--services-->
+<div class="container-fluid text-center" id="services">
   <h2>SERVICES</h2>
   <h4>What we offer</h4>
   <br>
   <div class="row">
-    <div class="col-sm-4">
-      <span class="glyphicon glyphicon-off logo-small"></span>
+    <div class="col-sm-4 slideanim">
+      <span class="glyphicon glyphicon-off logo-small "></span>
       <h4>POWER</h4>
       <p>Lorem ipsum dolor sit amet..</p>
     </div>
-    <div class="col-sm-4">
+    <div class="col-sm-4 slideanim" >
       <span class="glyphicon glyphicon-heart logo-small"></span>
       <h4>LOVE</h4>
       <p>Lorem ipsum dolor sit amet..</p>
     </div>
-    <div class="col-sm-4">
+    <div class="col-sm-4 slideanim">
       <span class="glyphicon glyphicon-lock logo-small"></span>
       <h4>JOB DONE</h4>
       <p>Lorem ipsum dolor sit amet..</p>
@@ -193,50 +336,50 @@
     </div>
     <br><br>
   <div class="row">
-    <div class="col-sm-4">
+    <div class="col-sm-4 slideanim">
       <span class="glyphicon glyphicon-leaf logo-small"></span>
       <h4>GREEN</h4>
       <p>Lorem ipsum dolor sit amet..</p>
     </div>
-    <div class="col-sm-4">
+    <div class="col-sm-4 slideanim">
       <span class="glyphicon glyphicon-certificate logo-small"></span>
       <h4>CERTIFIED</h4>
       <p>Lorem ipsum dolor sit amet..</p>
     </div>
-    <div class="col-sm-4">
+    <div class="col-sm-4 slideanim">
       <span class="glyphicon glyphicon-wrench logo-small"></span>
       <h4>HARD WORK</h4>
       <p>Lorem ipsum dolor sit amet..</p>
     </div>
   </div>
 </div>
-<!--thumbnail image-->
-<div class="container-fluid text-center bg-grey">
+<!--portofolio-->
+<div class="container-fluid text-center bg-grey" id="portfolio">
   <h2>Portfolio</h2>
   <h4>What we have created</h4>
   <div class="row text-center">
-    <div class="col-sm-4">
+    <div class="col-sm-4 slideanim">
       <div class="thumbnail">
         <img src="paris.jpg" alt="Paris" width="400" height="300">
         <p><strong>Paris</strong></p>
         <p>Yes, we built Paris</p>
       </div>
     </div>
-    <div class="col-sm-4">
+    <div class="col-sm-4 slideanim">
       <div class="thumbnail">
         <img src="newyork.jpg" alt="New York" width="400" height="300">
         <p><strong>New York</strong></p>
         <p>We built New York</p>
       </div>
     </div>
-    <div class="col-sm-4">
+    <div class="col-sm-4 slideanim">
       <div class="thumbnail">
         <img src="sanfran.jpg" alt="San Francisco" width="400" height="300">
         <p><strong>San Francisco</strong></p>
         <p>Yes, San Fran is ours</p>
       </div>
     </div>
-</div>
+  </div>
 <!--Carousel-->
 <h2>What our customers say</h2>
 <div class="carousel slide text-center" data-ride="carousel" id="MyCarousel">
@@ -261,25 +404,26 @@
     </div>
   </div>
 
-  <a href="#MyCarousel" class="left carousel-control" role="button"data-slide="prev">
+  <a href="#MyCarousel" class="left carousel-control" role="button" data-slide="prev">
     <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
     <span class="sr-only">Previous</span>
   </a>
 
-  <a href="#MyCarousel" class="right carousel-control" role="button" data-slide="prev">
+  <a href="#MyCarousel" class="right carousel-control" role="button" data-slide="next">
     <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
     <span class="sr-only">Next</span>
   </a>
 </div>
+</div>
 
 <!--Add Pricing Container-->
-<div class="container-fluid">
+<div class="container-fluid" id="pricing">
   <div class="text-center">
     <h2>Pricing</h2>
     <h4>Choose a payment plan that works for you</h4>
   </div>
-  <div class="row">
-    <div class="col-sm-4">
+  <div class="row text-center">
+    <div class="col-sm-4 slideanim">
       <div class="panel panel-default">
         <div class="panel-heading">
           <h1>Basic</h1>
@@ -301,7 +445,7 @@
       </div>
     </div>
 
-    <div class="col-sm-4">
+    <div class="col-sm-4 slideanim">
       <div class="panel panel-default">
         <div class="panel-heading">
           <h1>Pro</h1>
@@ -323,7 +467,7 @@
       </div>
     </div>
 
-    <div class="col-sm-4">
+    <div class="col-sm-4 slideanim">
       <div class="panel panel-default">
         <div class="panel-heading">
           <h1>Premium</h1>
@@ -347,7 +491,7 @@
   </div>
 </div>
 <!--Add Contact Container-->
-<div class="container-fluid bg-grey">
+<div class="container-fluid bg-grey" id="contact">
   <h2 class="text-center">CONTACT</h2>
   <div class="row">
     <div class="col-sm-5">
@@ -356,7 +500,7 @@
       <p><span class="glyphicon glyphicon-phone"></span> +00 1515151515</p>
       <p><span class="glyphicon glyphicon-envelope"></span> myemail@something.com</p> 
     </div>
-    <div class="col-sm-7">
+    <div class="col-sm-7 slideanim">
       <div class="row">
         <div class="col-sm-6 form-group">
           <input class="form-control" id="name" name="name" placeholder="Name" type="text" required>
@@ -374,6 +518,41 @@
     </div>
   </div>
 </div>
+<!--Google Map TODO:baidu map-->
+<!-- Set height and width with CSS -->
+<div id="googleMap" style="height:400px;width:100%;"></div>
 
+<!-- Add Google Maps -->
+<script src="http://maps.googleapis.com/maps/api/js"></script>
+<script>
+  var myCenter = new google.maps.LatLng(41.878114, -87.629798);
+
+  function initialize() {
+  var mapProp = {
+  center:myCenter,
+  zoom:12,
+  scrollwheel:false,
+  draggable:false,
+  mapTypeId:google.maps.MapTypeId.ROADMAP
+  };
+
+  var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
+
+  var marker = new google.maps.Marker({
+  position:myCenter,
+  });
+
+  marker.setMap(map);
+  }
+
+  google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+
+<footer class="container-fluid text-center">
+  <a href="#myPage" title=To Top>
+    <span class="glyphicon glyphicon-chevron-up"></span>
+  </a>
+  <p>Bootstrap Theme Made By <a href="http://mofanjun.github.io" title="Visit my house">mofanjun</a></p> 
+</footer>
 </body>
 </html>
