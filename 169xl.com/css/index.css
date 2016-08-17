@@ -1,0 +1,399 @@
+/*
+	global
+*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: broder-box; }
+
+/*
+	style#index.html#all page element
+*/
+body {
+  max-width: 1440px;
+  height: auto;
+  margin: auto; }
+
+ul.nav li {
+  display: inline-block; }
+  ul.nav li a {
+    text-decoration: none; }
+
+h2 {
+  display: inline-block;
+  border-left: grey 1px solid;
+  padding-left: 0.625rem; }
+
+h2 + span {
+  color: grey; }
+
+.left {
+  float: left;
+  width: 50%; }
+
+.right {
+  float: left;
+  width: 50%; }
+
+button {
+  background-color: transparent;
+  border: solid 1px grey;
+  border-radius: 15px;
+  height: 2rem;
+  width: 5.625rem; }
+  button span:nth-child(2) {
+    display: none;
+    transition: display 2s; }
+
+button:hover {
+  border-color: DarkTurquoise; }
+
+button:hover span {
+  color: DarkTurquoise;
+  display: inline-block; }
+
+/*
+	header
+*/
+header {
+  height: 4.375rem;
+  width: 90rem;
+  border-bottom: 2px solid DeepSkyBlue; }
+
+#second {
+  height: 100%;
+  width: 61.25rem;
+  margin: auto; }
+
+@keyframes example {
+  0% {
+    display: block;
+    height: 0%; }
+  100% {
+    height: 100%; } }
+nav {
+  display: inline-block;
+  float: right;
+  margin-right: px2em(230px);
+  height: 100%;
+  text-align: center;
+  position: relative; }
+  nav li {
+    position: relative; }
+  nav a {
+    display: inline-block;
+    text-decoration: none;
+    color: grey;
+    width: 6.25rem;
+    line-height: 4.375rem; }
+  nav .dropdown {
+    position: absolute;
+    top: 4.375rem;
+    left: 0;
+    overflow: hidden;
+    display: none; }
+  nav .dropdown a {
+    display: block;
+    line-height: 2.1875rem; }
+  nav a:hover {
+    color: white;
+    background-color: rgba(255, 0, 0, 0.5); }
+  nav a:hover + div.dropdown {
+    display: block;
+    background-color: rgba(255, 0, 0, 0.5);
+    z-index: 100;
+    animation-name: example;
+    animation-duration: 0.3s; }
+  nav li.one_line {
+    position: absolute;
+    background-color: red;
+    left: 0;
+    top: 0;
+    height: 2px;
+    width: 100px; }
+
+#logo {
+  display: inline-block;
+  margin-top: 1rem; }
+  #logo a {
+    display: inline-block;
+    border-right: 1px solid grey;
+    padding-right: 0.625rem; }
+  #logo span {
+    padding-left: 0.625rem;
+    color: grey;
+    vertical-align: top;
+    display: inline-block;
+    line-height: 2.125rem; }
+
+/*
+	???
+*/
+.slideshow-container {
+  max-width: 90rem;
+  position: relative;
+  margin: auto; }
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0; }
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px; }
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0, 0, 0, 0.8); }
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center; }
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0; }
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 13px;
+  width: 13px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease; }
+
+.active, .dot:hover {
+  background-color: #717171; }
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s; }
+
+@-webkit-keyframes fade {
+  from {
+    opacity: .4; }
+  to {
+    opacity: 1; } }
+@keyframes fade {
+  from {
+    opacity: .4; }
+  to {
+    opacity: 1; } }
+#image_container li {
+  position: relative;
+  width: 24.625%; }
+#image_container li.blank {
+  width: 0.5%; }
+#image_container li#loading_page {
+  color: white;
+  text-align: center;
+  background-color: DodgerBlue;
+  position: relative;
+  vertical-align: top; }
+  #image_container li#loading_page img {
+    visibility: hidden; }
+  #image_container li#loading_page h3 {
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translateX(-50%); }
+  #image_container li#loading_page p {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translateX(-50%); }
+  #image_container li#loading_page button {
+    position: absolute;
+    border: solid 1px white;
+    top: 65%;
+    left: 50%;
+    transform: translateX(-50%); }
+    #image_container li#loading_page button span {
+      color: white; }
+#image_container .mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: Aqua;
+  opacity: 0.3; }
+#image_container a:hover .mask {
+  display: none; }
+#image_container img {
+  max-width: 100%; }
+
+/*
+	main
+*/
+main {
+  margin: auto;
+  width: 61.25rem; }
+
+#bussiness {
+  margin: 1.25rem 0;
+  border-bottom: solid grey 1px; }
+  #bussiness ul {
+    margin-top: 1.25rem; }
+  #bussiness li {
+    width: 17%;
+    text-align: center;
+    padding-left: 4%;
+    padding-right: 4%; }
+  #bussiness a {
+    margin: auto;
+    display: block;
+    height: 100px;
+    width: 100px;
+    background: url("../assets/icon.png") 0 0px;
+    transition: background 1s; }
+  #bussiness a:hover {
+    background: url("../assets/icon.png") 0 -160px; }
+  #bussiness a:hover + span {
+    color: Aqua; }
+  #bussiness li span {
+    display: block;
+    font-size: 1.1rem;
+    margin-top: 0.625rem; }
+  #bussiness p {
+    font-size: 0.8rem;
+    line-height: 1.4;
+    color: grey;
+    text-align: left;
+    margin-top: 1.25rem;
+    margin-bottom: 2.5rem; }
+
+#about_us {
+  margin: 1.25rem 0;
+  border-bottom: solid grey 1px;
+  padding-bottom: 1.875rem; }
+  #about_us p {
+    margin-top: 1.25rem;
+    font-size: 0.875rem;
+    color: grey;
+    line-height: 1.4; }
+  #about_us button {
+    margin-top: 1.25rem; }
+  #about_us .right {
+    position: relative;
+    height: 12.5rem; }
+  #about_us a {
+    position: absolute;
+    width: 9.6875rem;
+    height: 2.5rem; }
+  #about_us a.ex1 {
+    top: 0;
+    left: 0;
+    background: url(../assets/partner.png) 0 -115px;
+    transition: background 2s; }
+  #about_us a.ex2 {
+    top: 0;
+    right: 0;
+    background: url(../assets/partner.png) 0 -115px;
+    transition: background 2s; }
+  #about_us a.ex3 {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: url(../assets/partner.png) 0 -115px;
+    transition: background 2s; }
+  #about_us a.ex4 {
+    bottom: 0;
+    left: 0;
+    background: url(../assets/partner.png) 0 -115px;
+    transition: background 2s; }
+  #about_us a.ex5 {
+    bottom: 0;
+    right: 0;
+    background: url(../assets/partner.png) 0 -115px;
+    transition: background 2s; }
+  #about_us a.ex1:hover {
+    background: url(../assets/partner.png) 0 -164px; }
+  #about_us a.ex2:hover {
+    background: url(../assets/partner.png) 0 -164px; }
+  #about_us a.ex3:hover {
+    background: url(../assets/partner.png) 0 -164px; }
+  #about_us a.ex4:hover {
+    background: url(../assets/partner.png) 0 -164px; }
+  #about_us a.ex5:hover {
+    background: url(../assets/partner.png) 0 -164px; }
+
+div#about_us:after {
+  content: "";
+  visibility: hidden;
+  display: block;
+  height: 0;
+  clear: both; }
+
+#company .left {
+  width: 65%;
+  position: relative;
+  height: 16.875rem; }
+#company ul {
+  text-align: center;
+  height: 1.875rem; }
+#company li {
+  width: 6.875rem;
+  height: 100%; }
+#company dl {
+  position: absolute;
+  top: 3.125rem;
+  left: 0;
+  display: none; }
+#company dt {
+  color: red; }
+#company a {
+  color: black;
+  display: inline-block;
+  height: 1.875rem;
+  line-height: 1.875rem;
+  width: 90%; }
+#company a.news_active {
+  background-color: DarkTurquoise; }
+#company dl:nth-child(1) {
+  display: block; }
+#company .right {
+  width: 35%; }
+
+div#company:after {
+  content: "";
+  visibility: hidden;
+  display: block;
+  height: 0;
+  clear: both; }
+
+/*
+	footer
+*/
+footer {
+  background-color: Cyan;
+  opacity: 0.5;
+  height: 305px; }

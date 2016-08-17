@@ -1,0 +1,65 @@
+<!--
+		<div id="services">
+			<div class="left">
+				<img src="./assets/map.png" alt="地图">
+			</div>
+
+			<div class="right">
+				<h2>乡旅服务</h2>
+				<span>Our Services</span>
+				<ul>
+					<li><a href="#">区域产业发展战略策划</a></li>
+					<li><a href="#">产业总体规划</a></li>
+					<li><a href="#">专项规划</a></li>
+					<li><a href="#">旅游区总体策划</a></li>
+					<li><a href="#">旅游区概念性规划</a></li>
+					<li><a href="#">旅游区总体规划</a></li>
+					<li><a href="#">全程顾问服务</a></li>
+					<li><a href="#">旅游详细策划</a></li>
+					<li><a href="#">旅游概念性详细规划</a></li>
+					<li><a href="#">旅游修建性详细规划</a></li>
+					<li><a href="#">旅游建筑设计</a></li>
+					<li><a href="#">旅游景观设计</a></li>
+				</ul>
+				<button>MORE</button>
+			</div>
+		</div>
+
+		<div id="cases">
+			<div class="left">
+				<h2>乡旅案例</h2>
+				<span>Our case</span>
+				<ul>
+					<li><a href="#">三亚市旅游发展总体规划(国际竞标第一名)</a></li>
+					<li><a href="#">长兴太湖图影省级旅游度假区总体规划及城市设计(国际竞标第一名)</a></li>
+					<li><a href="#">天津滨海新区航母主题公园策划、规划、设计项目(国际选标第一名)</a></li>
+					<li><a href="#">武当山太极湖旅游区总体规划(全国竞标第一名)</a></li>
+					<li><a href="#">苏州金鸡湖区域旅游休闲策划及商业发展策划(全国竞标第一名)</a></li>
+					<li><a href="#">青城山都江堰国际休闲度假区产业总体规划(全国选标中标)</a></li>
+					<li><a href="#">半汤、汤池国际温泉度假区概念性规划及城市设计(全国竞标技术标第一名)</a></li>
+				</ul>
+				<button>MORE</button>
+			</div>
+
+			<div class="right">
+				<img src="./assets/case.png">
+			</div>
+		</div>
+
+		<div id="join_us">
+			<div class="left">
+				<img src="./assets/joinus.png" alt="地图">
+			</div>
+
+			<div class="right">
+				<h2>奇兵团</h2>
+				<span>Join Us</span>
+				<p>
+					我们欢迎脚踏实地的老实人；不抱怨、乐观而肯干的平凡人。我们的伟大理想是由无数平凡单调重复做的事情堆砌而成的。我们需要有担当的人，责任有多大，舞台有多大。请发送简历，注明应聘职位、期望薪水、可开始工作日及工作地点等信息至
+					<a href="1195943544@qq.com">mofanjun@qq.com</a>
+				</p>
+
+				<button>MORE</button>
+			</div>
+		</div>
+-->
